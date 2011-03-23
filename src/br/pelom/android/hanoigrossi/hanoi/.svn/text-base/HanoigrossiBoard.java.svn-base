@@ -73,7 +73,7 @@ public class HanoigrossiBoard implements IHanoigrossiBoard {
 
 		return null;
 	}
-	
+
 	/**
 	 * Recuperar o tamanho do disco.
 	 */
@@ -117,7 +117,7 @@ public class HanoigrossiBoard implements IHanoigrossiBoard {
 				hastes[hasteDestino].push(disco);
 				//soma movimento
 				moveCount++;
-				
+
 				movi = true;
 
 			} else {
@@ -173,44 +173,44 @@ public class HanoigrossiBoard implements IHanoigrossiBoard {
 		if((hastes[PEGS-1].empty() || hastes[PEGS-2].empty()) && !hastes[PEGS-3].empty()) {
 			//haste nao esta vazia?
 			if(!hastes[PEGS-1].empty() && hastes[PEGS-1].size() > 2) {
-				 if(isDiscoSequencia(hastes[PEGS-1])) {
-					 return PEGS-1;
-				 }
-				
+				if(isDiscoSequencia(hastes[PEGS-1])) {
+					return PEGS-1;
+				}
+
 			} else if(!hastes[PEGS-2].empty() && hastes[PEGS-2].size() > 2) {
 				if(isDiscoSequencia(hastes[PEGS-2])) {
 					return PEGS-2;
 				}
-			
+
 			}
 		}
-		
+
 		return -1;
 	}
-	
+
 	/**
 	 * Verifica se os disco na haste estao na seguencia correta.
 	 * @return true se estivere false se nao
 	 */
 	private boolean isDiscoSequencia(Stack<Disco> haste) {
 		final Iterator<Disco> it = haste.iterator();
-		
+
 		//numero do disco referencia.
 		int i = haste.size()-1;
-		
+
 		while (it.hasNext()) {
 			Disco disc = it.next();
 			//o disco menor e diferente do disco referencia?
 			if(i != disc.getNum()-1) {
 				return false;
 			}
-			
+
 			i--;
 		}
-		
+
 		return true;
 	}
-	
+
 	/**
 	 * 
 	 */
@@ -255,13 +255,28 @@ public class HanoigrossiBoard implements IHanoigrossiBoard {
 		return hastes[haste].empty();
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void selecionarDisco(int haste, boolean select) {
 		Disco[] discos = getDisco(haste);
-		
+
 		int size = discos.length;
 		for (int i = 0; i < size; i++) {
 			discos[i].setSelecionado(select);
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void discoSilencionado(Disco disco) {
+		//disco.setSelecionado(true);
+
+		if(acao != null) {
+			acao.actionDiscoSelecionado();
 		}
 	}
 }

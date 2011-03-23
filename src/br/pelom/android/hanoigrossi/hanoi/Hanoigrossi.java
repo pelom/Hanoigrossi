@@ -42,6 +42,9 @@ public class Hanoigrossi implements IHanoiAcao {
 	/** Classe responsavel por reproduzir os sons **/
 	private AudioPlay audio = null;
 
+	/** Context **/
+	private Context ctx = null;
+
 	/**
 	 * Construtor da classe.
 	 * @param ctx
@@ -50,6 +53,7 @@ public class Hanoigrossi implements IHanoiAcao {
 	public Hanoigrossi(Context ctx, HanoiGrossiView view ) {
 		super();
 
+		this.ctx = ctx;
 		this.view = view;
 		this.board = new HanoigrossiBoard(MINDISCS, PEG1, MINDISCS);
 		this.board.setHanoiAcao(this);
@@ -117,6 +121,9 @@ public class Hanoigrossi implements IHanoiAcao {
 				int haste;
 				if(sucesso && (haste = board.verificarPassoCorreto()) != -1) {
 					audio.playBonus();
+					
+					Utils.msgVibracall(ctx, 100);
+
 					//desenhar animacao.
 					view.anicacaoDiscoHaste(haste);
 				}
@@ -150,5 +157,13 @@ public class Hanoigrossi implements IHanoiAcao {
 				}
 			}
 		});
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void actionDiscoSelecionado() {
+		Utils.msgVibracall(ctx, 50);
 	}
 }

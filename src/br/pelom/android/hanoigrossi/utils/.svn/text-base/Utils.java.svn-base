@@ -1,6 +1,7 @@
 package br.pelom.android.hanoigrossi.utils;
 
 import android.content.Context;
+import android.os.Vibrator;
 import br.pelom.android.hanoigrossi.hanoi.HanoiControleFase;
 
 /**
@@ -8,7 +9,7 @@ import br.pelom.android.hanoigrossi.hanoi.HanoiControleFase;
  */
 public class Utils {
 	public static boolean emitirSom = false;
-	
+
 	/**
 	 * 
 	 * @param disco
@@ -17,7 +18,7 @@ public class Utils {
 	public static int moviMinimo(int disco) {
 		return (int) Math.pow(2, disco) - 1;
 	}
-	
+
 	/**
 	 * 
 	 * @param ctx
@@ -26,7 +27,7 @@ public class Utils {
 	public static HanoiControleFase getInstaciaControleHanoi(Context ctx) {
 		return HanoiControleFase.getInstacia(ctx);
 	}
-	
+
 	/**
 	 * 
 	 * @param ctx
@@ -35,5 +36,15 @@ public class Utils {
 	 */
 	public static AudioPlay getInstaciaControleAudio(Context ctx) {
 		return AudioPlay.getInstacia(ctx, emitirSom);
+	}
+
+	/**
+	 * 
+	 * @param ctx
+	 */
+	public static void msgVibracall(Context ctx, long vb) {
+		if(!emitirSom) return;
+		Vibrator v = (Vibrator) ctx.getSystemService(Context.VIBRATOR_SERVICE);
+		v.vibrate(vb);
 	}
 }

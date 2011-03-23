@@ -16,4 +16,9 @@ public interface IHanoiAcao {
 	 * @param move - numero de movimentos ja realizados
 	 */	
 	public void actionMoverDisco(boolean sucesso, int min, int move);
+	
+	/**
+	 * Metodo executado quando um disco e selecionado
+	 */
+	public void actionDiscoSelecionado();
 }

@@ -16,20 +16,23 @@ import br.pelom.android.hanoigrossi.hanoi.IHanoigrossiGameView;
 import br.pelom.android.hanoigrossi.model.Fase;
 import br.pelom.android.hanoigrossi.repositorio.Banco;
 import br.pelom.android.hanoigrossi.repositorio.FaseRepositorio;
+import br.pelom.android.hanoigrossi.utils.Utils;
 import br.pelom.android.utils.Dialogo;
 
 /**
  * @author pelom
  */
 public class HanoigrossiActivity extends Activity implements IHanoigrossiGameView {
+	/** Cronometro do jogo **/
 	private Chronometer cromometro = null;
-
+	/** Text do menu da fase **/
 	private TextView textViewDiscos = null;
 	private TextView textViewNivel = null;
 	private TextView textViewMovi = null;
 
+	/** Controlado da logico do jogo **/
 	private Hanoigrossi hanoigrossi = null;
-
+	/** Controlado de redenrizacao do jogo **/
 	private HanoiGrossiView hanoigrossiview = null;
 
 	/** Called when the activity is first created. */
@@ -46,7 +49,7 @@ public class HanoigrossiActivity extends Activity implements IHanoigrossiGameVie
 		setContentView(R.layout.main);
 
 		this.hanoigrossiview =  (HanoiGrossiView) findViewById(R.id.HanoiView);
-		
+
 		this.hanoigrossi = new Hanoigrossi(this, hanoigrossiview);
 		this.hanoigrossi.setGame(this);
 
@@ -57,7 +60,7 @@ public class HanoigrossiActivity extends Activity implements IHanoigrossiGameVie
 
 		this.hanoigrossi.iniciar();
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -76,7 +79,7 @@ public class HanoigrossiActivity extends Activity implements IHanoigrossiGameVie
 		//numero de movimento.
 		this.textViewMovi.setText(getString(R.string.movimentos) + ": " + hanoigrossi.getBoard().getMoveCount() + 
 				" " + getString(R.string.de) +  " " + hanoigrossi.getBoard().getMinMoves());
-		
+
 		//iniciar contagem.
 		this.cromometro.start();
 	}
@@ -98,13 +101,13 @@ public class HanoigrossiActivity extends Activity implements IHanoigrossiGameVie
 		this.cromometro.stop();
 		fase.setTempo(this.cromometro.getText().toString());
 		fase.setNumeroMov(hanoigrossi.getBoard().getMoveCount());
-		
+
 		final FaseRepositorio rep = 
 			new FaseRepositorio(Banco.getSQLiteHelper(this), this);
 		rep.abrir();
 		rep.atualizar(fase);
 		rep.fechar();
-		
+
 		finish();
 	}
 
@@ -115,7 +118,7 @@ public class HanoigrossiActivity extends Activity implements IHanoigrossiGameVie
 		Dialogo.criarDialogInformativo(HanoigrossiActivity.this, 
 				getString(R.string.gameover_titulo), 
 				getString(R.string.gameover_msg), true).show();
-		
+
 		hanoigrossi.iniciar();
 	}
 }

@@ -5,7 +5,6 @@ package br.pelom.android.hanoigrossi;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.os.Handler;
@@ -120,6 +119,8 @@ public class HanoiGrossiView extends View {
 			sourceDisc = board.getTopDisc(sourcePeg);
 
 			if(sourceDisc.getNum() > 0) {
+				board.discoSilencionado(sourceDisc);
+				
 				redesenharView(sourceDisc, x, y); 
 			}
 		}

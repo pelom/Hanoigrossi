@@ -25,7 +25,11 @@ public interface IHanoigrossiBoard {
 	
 	public void setHanoiAcao(IHanoiAcao acao);
 	
-	boolean isbjetivoConcluido();
+	/**
+	 * O objetivo do jogo foi concluido
+	 * @return true se sim ou false se nao
+	 */
+	public boolean isbjetivoConcluido();
 	
 	/**
 	 * Retorna se a joga realizada e um passo correto. 
@@ -34,11 +38,35 @@ public interface IHanoigrossiBoard {
 	 */
 	public int verificarPassoCorreto();
 	
-	int getMinMoves();
+	/**
+	 * recupera o numero de movimentos minimos para concluir o jogo
+	 * @return numero de movimentos minimos
+	 */
+	public int getMinMoves();
 	
-	int getMoveCount();
+	/**
+	 * Recupera o numero de movimentos do jogador
+	 * @return numero de movimentos
+	 */
+	public int getMoveCount();
 	
-	Disco[] getDisco(int haste);
+	/**
+	 * Recupera os discos da haste.
+	 * @param haste - index da haste a ser recuperada os discos
+	 * @return discos da haste
+	 */
+	public Disco[] getDisco(int haste);
 	
-	void selecionarDisco(int haste, boolean select);
+	/**
+	 * Selecionar ou deselecionar os discos da haste.
+	 * @param haste - haste a ser selecionada os discos
+	 * @param select - true para selecionar os discos false se nao
+	 */
+	public void selecionarDisco(int haste, boolean select);
+	
+	/**
+	 * Notifica que um disco foi selecionado.
+	 * @param disco - disco selecionado
+	 */
+	public void discoSilencionado(Disco disco);
 }
