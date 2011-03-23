@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="de">de</string>
+    <string name="nivel">Nível</string>
+    <string name="discos">Discos</string>
+    <string name="iniciante">Inciante</string>
+    <string name="intermediario">Intermediário</string>
+    <string name="avancado">Avançado</string>
+    <string name="movimentos">Movimentos</string>
+    <string name="tempo">Tempo: </string>
+    <string name="sim">Sim</string>
+    <string name="nao">Não</string>
+    <string name="gameover_titulo">Objetivo não concluído</string>
+    <string name="gameover_msg">O número minimo de movimentos foi exedido</string> 
+    <string name="app_name">Hanoigrossi</string>
+    <string name="chronometer_initial_format"><xliff:g id="initial-format">%s</xliff:g></string>
+    
+    <string name="sobre">Hanoigrossi é um jogo grátis e open-source do quebra-cabeça conhecido como Torre de Hanoi, 
+    esse jogo foi desenvolvido para a plataforma Android a partir do código fonte do Francisco Grossi disponível para a plataforma Java. Mais informações, contribuições, sugestões e criticas clique no link: <a href="http://pelomandroid.wordpress.com/">pelomandroid.wordpress.com</a></string>
+    <string name="sobre_textcontrubuicao">Contrubuições:</string>
+	<string name="sobre_textgledsonrodrigues"><b>Gled Rodrigues:</b> <a href="http://www.gledsondesign.com.br/">gledsondesign.com.br/</a></string>
+	<string name="sobre_textgrossi"><b>Francisco Grossi:</b> <a href="http://www.ime.usp.br/~fgrossi/">www.ime.usp.br/~fgrossi</a></string>
+	<string name="ajuda_torredehanoi">A Torre de Hanói é um quebra-cabeça que consiste em uma base contendo três pinos, em um dos quais são dispostos alguns discos uns sobre os outros, em ordem crescente de diâmetro, de cima para baixo.</string>
+
+	<string name="ajuda_torredehanoi_problema">O problema consiste em passar todos os discos de um pino para outro qualquer, usando um dos pinos como auxiliar, de maneira que um disco maior nunca fique em cima de outro menor em nenhuma situação. O número de discos pode variar sendo que o mais simples contém apenas três.</string>
+	<string name="ajuda_torredehanoi_curiosidade">A Torre de Hanói tem sido tradicionalmente considerada como um procedimento para avaliação da capacidade de memória de trabalho, e principalmente de planejamento e solução de problemas.</string>
+</resources>

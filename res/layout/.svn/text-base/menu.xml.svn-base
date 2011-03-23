@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/widget32"
+	android:layout_width="fill_parent" 
+	android:layout_height="fill_parent"
+	android:background="@drawable/bg_menu">
+	
+	<TableLayout android:id="@+id/widget28"
+		android:layout_width="wrap_content" 
+		android:layout_height="fill_parent"
+		android:orientation="vertical" 
+		android:layout_centerVertical="true"
+		android:layout_centerHorizontal="true"
+		>
+		
+		<TextView android:id="@+id/widget4" 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="0.5">
+			</TextView>
+		
+		<Button android:id="@+id/StartGame" 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			android:background="@drawable/startgame_button"
+			>
+		</Button>
+		
+		<Button android:id="@+id/Help" 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			android:background="@drawable/help_button"
+			>
+		</Button>
+		
+		<Button android:id="@+id/Options" 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			android:background="@drawable/options_button"
+			>
+		</Button>
+		
+		<Button android:id="@+id/Credits" 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			android:background="@drawable/credits_button"
+			>
+		</Button>
+	</TableLayout>
+	
+</RelativeLayout>
