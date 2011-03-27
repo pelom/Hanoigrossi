@@ -14,24 +14,39 @@ import br.pelom.android.hanoigrossi.R;
  * @author pelom
  */
 public class AudioPlay {
+	/** Identificadores do audio **/
 	public static final int SOUND_CLICK = 1;  
 	public static final int SOUND_FLIP = 2; 
 	public static final int SOUND_VICTORY = 3; 
 	public static final int SOUND_BONUS = 4; 
 	public static final int SOUND_GAMEOVER = 5; 
-	public static final int SOUND_FIBRA = 6; 
+	public static final int SOUND_FIBRA = 6;
+	
 	private static AudioPlay audioPlay;
 
-	private SoundPool soundPool = null;  
+	/** Pool de audios **/
+	private SoundPool soundPool = null;
+	
+	/** Mapa de audios **/
 	private HashMap<Integer, Integer> soundPoolMap = null;  
+	
+	/** Context **/
 	private Context ctx = null;
+	
+	/** identificador da stream **/
 	private int idStream;
+	
+	/** guarda se o som pode ser emitido **/
 	private boolean emitirSom;
 
+	/** Guarda se audio esta descarregado **/
+	private static boolean descarregado = true;
+	
 	/**
 	 * Construtor da classe.
 	 * 
-	 * @param ctx
+	 * @param ctx - contexto 
+	 * @param emitirSom - som pode ser emitido
 	 */
 	private AudioPlay(Context ctx, boolean emitirSom) {
 		super();
@@ -41,10 +56,11 @@ public class AudioPlay {
 	}
 
 	/**
-	 * 
+	 * Carregar audio em memoria
 	 */
 	public void carregarAudio() {
 		if(!emitirSom) return;
+		
 		soundPool = new SoundPool(6, AudioManager.STREAM_MUSIC, 100);
 		soundPoolMap = new HashMap<Integer, Integer>();  
 		soundPoolMap.put(SOUND_FIBRA, soundPool.load(ctx, R.raw.fibra, 1));
@@ -53,15 +69,18 @@ public class AudioPlay {
 		soundPoolMap.put(SOUND_VICTORY, soundPool.load(ctx, R.raw.victory, 1));
 		soundPoolMap.put(SOUND_BONUS, soundPool.load(ctx, R.raw.gnometris, 1));
 		soundPoolMap.put(SOUND_GAMEOVER, soundPool.load(ctx, R.raw.gameover, 1));
-	}  
+
+		descarregado = false;
+	}
 
 	/**
-	 * 
+	 * Descarregar audio da memoria
 	 */
 	public void descarregarAudio() {
-		audioPlay = null;
+		descarregado = true;
 
 		if(!emitirSom) return;
+		
 		soundPool.unload(soundPoolMap.get(SOUND_FIBRA));
 		soundPool.unload(soundPoolMap.get(SOUND_CLICK));
 		soundPool.unload(soundPoolMap.get(SOUND_FLIP));
@@ -71,18 +90,23 @@ public class AudioPlay {
 	}
 
 	/**
+	 * Reproduzir audio 
 	 * 
 	 * @param sound
+	 * @param repetir
+	 * @return
 	 */
-	private void playSound(int sound, boolean repetir) {
-		if(!emitirSom) return;
+	private int playSound(int sound, boolean repetir) {
+		if(!emitirSom) return -1;
+
 		/* Updated: The next 4 lines calculate the current volume in a scale of 0.0 to 1.0 */  
 		AudioManager mgr = (AudioManager) ctx.getSystemService(Context.AUDIO_SERVICE);    
 		float volume =  mgr.getStreamVolume(AudioManager.STREAM_MUSIC);  
 		volume = volume / mgr.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
 
+
 		/* Play the sound with the correct volume */  
-		idStream = soundPool.play(soundPoolMap.get(sound), 
+		return soundPool.play(soundPoolMap.get(sound), 
 				volume, volume, 1, (repetir) ? -1 : 0, 1f);
 	}
 
@@ -124,8 +148,8 @@ public class AudioPlay {
 	/**
 	 * 
 	 */
-	public void playTrilha() {  
-		playSound(SOUND_FIBRA, true);  
+	public void playTrilha() {
+		this.idStream = playSound(SOUND_FIBRA, true);
 	}
 
 	/**
@@ -142,9 +166,10 @@ public class AudioPlay {
 	 * @return
 	 */
 	public static AudioPlay getInstacia(Context ctx, boolean emitirSom) {
-		if(audioPlay == null) {
+		if(descarregado) {
 			audioPlay = new AudioPlay(ctx, emitirSom);
 		}
+		
 		return audioPlay;
 	} 
 }

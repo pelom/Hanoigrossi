@@ -1,73 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@+id/LinearLayout01" 
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent" 
-	android:orientation="vertical">
+              android:id="@+id/container"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent">
+
+    <ListView android:id="@+id/fases"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"/>
 	
-	<TableLayout android:layout_height="wrap_content"
-     	android:layout_width="wrap_content" 
-     	>
-     	<TableRow>
-     		<TextView
-				android:id="@+id/TextViewTempo" 
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content" 
-				android:text="@string/tempo"
-				android:textColor="#FFFFFF" 
-				android:textSize="14sp"
-				android:textStyle="bold" 
-				android:shadowColor="#00ccff"
-				android:shadowRadius="1.5" 
-				android:shadowDx="1" 
-				android:shadowDy="1"
-				/>
-				
-	         <Chronometer android:id="@+id/chronometer"
-		        android:format="@string/chronometer_initial_format"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		       	android:textColor="#FFFFFF" 
-				android:textSize="14sp"
-				android:textStyle="bold" 
-				android:shadowColor="#00ccff"
-				android:shadowRadius="1.5" 
-				android:shadowDx="1" 
-				android:shadowDy="1"
-				android:layout_marginRight="10dip"
-		        />
-		         
-	          <TextView
-				android:id="@+id/TextViewNivel" 
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content" 
-				android:textColor="#FFFFFF" 
-				android:textSize="14sp"
-				android:textStyle="bold" 
-				android:shadowColor="#00ccff"
-				android:shadowRadius="1.5" 
-				android:shadowDx="1" 
-				android:shadowDy="1"
-				android:layout_marginRight="10dip"
-				/>	
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:id="@+id/GameHanoigrossi" 
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent" 
+		android:orientation="vertical"
+		android:visibility="gone">
 		
-	           <TextView 
-	           	android:id="@+id/TextViewDiscos" 
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content" 
-				android:textColor="#FFFFFF" 
-				android:textSize="14sp"
-				android:textStyle="bold" 
-				android:shadowColor="#00ccff"
-				android:shadowRadius="1.5" 
-				android:shadowDx="1" 
-				android:shadowDy="1"
-				android:layout_marginRight="10dip"
-				/>
-				
-				<TextView 
-		           	android:id="@+id/TextViewMovi" 
+		<TableLayout android:layout_height="wrap_content"
+	     	android:layout_width="wrap_content" 
+	     	>
+	     	<TableRow>
+	     		<TextView
+					android:id="@+id/TextViewTempo" 
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content" 
+					android:text="@string/tempo"
+					android:textColor="#FFFFFF" 
+					android:textSize="14sp"
+					android:textStyle="bold" 
+					android:shadowColor="#00ccff"
+					android:shadowRadius="1.5" 
+					android:shadowDx="1" 
+					android:shadowDy="1"
+					/>
+					
+		         <Chronometer android:id="@+id/chronometer"
+			        android:format="@string/chronometer_initial_format"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			       	android:textColor="#FFFFFF" 
+					android:textSize="14sp"
+					android:textStyle="bold" 
+					android:shadowColor="#00ccff"
+					android:shadowRadius="1.5" 
+					android:shadowDx="1" 
+					android:shadowDy="1"
+					android:layout_marginRight="10dip"
+			        />
+			         
+		          <TextView
+					android:id="@+id/TextViewNivel" 
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content" 
 					android:textColor="#FFFFFF" 
@@ -79,16 +62,46 @@
 					android:shadowDy="1"
 					android:layout_marginRight="10dip"
 					/>	
-     	</TableRow>
-     </TableLayout>
-     
-	<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	    android:layout_width="fill_parent"
-	    android:layout_height="fill_parent"
-	    >
-			<br.pelom.android.hanoigrossi.HanoiGrossiView
-				android:id="@+id/HanoiView"
-				 android:layout_width="fill_parent"
-		   		 android:layout_height="fill_parent"/>
-	</FrameLayout>
+			
+		           <TextView 
+		           	android:id="@+id/TextViewDiscos" 
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content" 
+					android:textColor="#FFFFFF" 
+					android:textSize="14sp"
+					android:textStyle="bold" 
+					android:shadowColor="#00ccff"
+					android:shadowRadius="1.5" 
+					android:shadowDx="1" 
+					android:shadowDy="1"
+					android:layout_marginRight="10dip"
+					/>
+					
+					<TextView 
+			           	android:id="@+id/TextViewMovi" 
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content" 
+						android:textColor="#FFFFFF" 
+						android:textSize="14sp"
+						android:textStyle="bold" 
+						android:shadowColor="#00ccff"
+						android:shadowRadius="1.5" 
+						android:shadowDx="1" 
+						android:shadowDy="1"
+						android:layout_marginRight="10dip"
+						/>	
+	     	</TableRow>
+	     </TableLayout>
+	     
+		<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent"
+		    >
+				<br.pelom.android.hanoigrossi.HanoiGrossiView
+					android:id="@+id/HanoiView"
+					 android:layout_width="fill_parent"
+			   		 android:layout_height="fill_parent"/>
+		</FrameLayout>
+	</LinearLayout>
+
 </LinearLayout>

@@ -9,7 +9,7 @@ import br.pelom.android.hanoigrossi.hanoi.HanoiControleFase;
  */
 public class Utils {
 	public static boolean emitirSom = false;
-
+	
 	/**
 	 * 
 	 * @param disco

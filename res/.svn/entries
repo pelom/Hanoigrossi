@@ -26,6 +26,9 @@ svn:special svn:externals svn:needs-lock
 
 b47432a9-39ee-45fb-b88a-ab52ab622c34
 
+anim
+dir
+
 drawable-hdpi
 dir
 

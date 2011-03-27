@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="br.pelom.android.hanoigrossi" android:versionName="1.0" android:versionCode="032011174">
+	package="br.pelom.android.hanoigrossi" android:versionCode="032011184" android:versionName="1.1">
 	<uses-sdk android:minSdkVersion="4"></uses-sdk>
  	<uses-permission android:name="android.permission.VIBRATE"></uses-permission>
 
 	<application android:icon="@drawable/icon" android:label="@string/app_name">
-		<activity android:label="@string/app_name"
-			android:screenOrientation="landscape" 
+		<activity android:label="@string/app_name" 
 			android:configChanges="orientation|keyboardHidden" android:name=".activity.HanoigrossiActivity">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 			</intent-filter>
 		</activity>
-		<activity android:configChanges="orientation|keyboardHidden" android:name=".activity.ListaFaseActivity">
-			<intent-filter>
-				<action android:name="android.intent.action.MAIN"></action>
-			</intent-filter>
-		</activity>
+		
 		<activity android:name=".activity.HanoigrossiSplash">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN"></action>
